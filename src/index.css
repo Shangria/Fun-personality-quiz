@@ -1,13 +1,162 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Анимация для плавного появления элементов */
+@keyframes fade-in {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.animate-fade-in {
+    animation: fade-in 0.5s ease-out forwards;
+}
+
+/* Фоновый градиент с мягким переходом */
+.quiz-background {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(to bottom right, #4a148c, #6a1b9a, #8e24aa, #ab47bc);
+    color: #f3e5f5;
+}
+
+/* Стиль для "звезд" на фоне */
+.quiz-background::before,
+.quiz-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 228, 225, 0.2), transparent 20%);
+    opacity: 0.2;
+    animation: float-stars 30s linear infinite;
+    pointer-events: none;
+}
+
+.quiz-background::after {
+    opacity: 0.15;
+    animation-duration: 40s;
+    animation-direction: reverse;
+}
+
+/* Анимация для "звездного" фона */
+@keyframes float-stars {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        transform: translate(-25%, -25%) scale(1.1);
+    }
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+/* Фонарики на фоне */
+.quiz-background .lantern {
+    position: absolute;
+    background: radial-gradient(circle, rgba(255, 192, 203, 0.7), transparent 50%);
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: flicker 3s infinite alternate ease-in-out;
+}
+
+.quiz-background .lantern-1 {
+    width: 120px;
+    height: 120px;
+    top: 20%;
+    left: 15%;
+}
+
+.quiz-background .lantern-2 {
+    width: 100px;
+    height: 100px;
+    top: 40%;
+    left: 80%;
+}
+
+.quiz-background .lantern-3 {
+    width: 130px;
+    height: 130px;
+    top: 70%;
+    left: 30%;
+}
+
+.quiz-background .lantern-4 {
+    width: 150px;
+    height: 150px;
+    top: 15%;
+    right: 20%;
+    opacity: 0.7;
+}
+
+.quiz-background .lantern-5 {
+    width: 120px;
+    height: 120px;
+    bottom: 10%;
+    right: 15%;
+}
+
+/* Мягкое мерцание фонариков */
+@keyframes flicker {
+    0%, 100% {
+        opacity: 0.9;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+/* Стили для прогресс-бара */
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar-inner {
+    height: 100%;
+    background: linear-gradient(90deg, #f48fb1, #ce93d8);
+    transition: width 0.3s ease;
+    border-radius: 4px;
+}
+
+/* Стиль для карточек с вопросами */
+.question-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Уникальный стиль для кнопок */
+.option-button {
+    background: linear-gradient(135deg, #f06292, #ba68c8);
+    color: white;
+    font-weight: bold;
+    padding: 12px 16px;
+    border-radius: 12px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.option-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+.option-button:active {
+    transform: scale(0.95);
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
 }
