@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Shangria/Fun-personality-quiz/static/css/main.1079add0.css",
+    "main.js": "/Shangria/Fun-personality-quiz/static/js/main.6fc2f661.js",
+    "static/js/453.2b0627e5.chunk.js": "/Shangria/Fun-personality-quiz/static/js/453.2b0627e5.chunk.js",
+    "index.html": "/Shangria/Fun-personality-quiz/index.html",
+    "main.1079add0.css.map": "/Shangria/Fun-personality-quiz/static/css/main.1079add0.css.map",
+    "main.6fc2f661.js.map": "/Shangria/Fun-personality-quiz/static/js/main.6fc2f661.js.map",
+    "453.2b0627e5.chunk.js.map": "/Shangria/Fun-personality-quiz/static/js/453.2b0627e5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1079add0.css",
+    "static/js/main.6fc2f661.js"
+  ]
+}
